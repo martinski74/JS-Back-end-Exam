@@ -1,30 +1,20 @@
 const express = require('express');
 const app = express();
-const { recipes } = require('./seed.js');
-const {seedDataBase} = require('./util.js');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const { configureExpress } = require('./config/express');
 const { configureHbs } = require('./config/hbs');
 const { router } = require('./config/routes');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 configureExpress(app);
 configureHbs(app);
 app.use(router);
 
 mongoose
-  .connect('mongodb+srv://martinski:y8gZDOUYcN63Y14w@cluster0.rardpvw.mongodb.net/cooking-recipes?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => {
-    seedDataBase()
-      .then(() => {
-        console.log('Database seeded successfully');
-      })
-      .catch((err) => {
-        console.error('Error seeding database:', err);
-      });
-  })
-
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
    

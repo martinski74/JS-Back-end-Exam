@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "debug": "nodemon src/index.js",
-    "start": "node src/index.js" 
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.7",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "express-validator": "^7.1.0",

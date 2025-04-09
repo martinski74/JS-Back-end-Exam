@@ -1,5 +1,4 @@
-const {Recipe} = require('./models/Recipe.js');
-const { recipes } = require('./seed.js');
+
 function parseError(err) {
   if (err instanceof Error) {
     if (!err.errors) {
@@ -25,13 +24,13 @@ function parseError(err) {
   return err;
 }
 
-const seedDataBase = async() => {
-  for (const recipe of Object.values(recipes)) {
-    // console.log(recipe);
+// const seedDataBase = async() => {
+//   for (const recipe of Object.values(recipes)) {
+//     // console.log(recipe);
     
-    const newRecipe = new Recipe(recipe);
-    await newRecipe.save();
-}
-}
+//     const newRecipe = new Recipe(recipe);
+//     await newRecipe.save();
+// }
+// }
 
-module.exports = { parseError, seedDataBase };
+module.exports = { parseError };
