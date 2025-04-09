@@ -14,7 +14,7 @@ configureHbs(app);
 app.use(router);
 
 mongoose
-  .connect('mongodb+srv://martinski:y8gZDOUYcN63Y14w>@cluster0.rardpvw.mongodb.net/cooking-recipes?retryWrites=true&w=majority&appName=Cluster0')
+  .connect('mongodb+srv://martinski:y8gZDOUYcN63Y14w@cluster0.rardpvw.mongodb.net/cooking-recipes?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {
     seedDataBase()
       .then(() => {
